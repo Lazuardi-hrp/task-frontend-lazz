@@ -15,15 +15,7 @@ type ToasterToast = ToastProps & {
    action?: ToastActionElement
 }
 
-// Define action types as string literals instead of an object that's only used as a type
-type ActionType = {
-   ADD_TOAST: "ADD_TOAST"
-   UPDATE_TOAST: "UPDATE_TOAST"
-   DISMISS_TOAST: "DISMISS_TOAST"
-   REMOVE_TOAST: "REMOVE_TOAST"
-}
-
-// Use the action type literals directly where needed
+// Define action types directly in the Action type
 type Action =
    | {
          type: "ADD_TOAST"

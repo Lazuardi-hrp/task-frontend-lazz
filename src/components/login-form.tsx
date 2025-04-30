@@ -83,7 +83,7 @@ export default function LoginForm() {
          {errors.password && <p className="text-sm text-destructive">{errors.password.message}</p>}
          </div>
 
-         <Button type="submit" className="w-full" disabled={isLoading}>
+         <Button type="submit" className="w-full outline" disabled={isLoading}>
          {isLoading ? "Logging in..." : "Login"}
          </Button>
 

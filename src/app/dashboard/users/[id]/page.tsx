@@ -11,7 +11,9 @@ interface UserPageProps {
 }
 
 export async function generateMetadata({ params }: UserPageProps): Promise<Metadata> {
-   const userId = Number.parseInt(params.id)
+   // Use this pattern to access params in an async context
+   const id = await Promise.resolve(params.id)
+   const userId = Number.parseInt(id)
    const user = await getUserById(userId)
 
    if (!user) {
@@ -27,8 +29,14 @@ export async function generateMetadata({ params }: UserPageProps): Promise<Metad
 }
 
 export default async function UserPage({ params }: UserPageProps) {
-   const userId = Number.parseInt(params.id)
-   const [user, posts] = await Promise.all([getUserById(userId), getPostsByUserId(userId)])
+   // Use this pattern to access params in an async context
+   const id = await Promise.resolve(params.id)
+   const userId = Number.parseInt(id)
+   
+   const [user, posts] = await Promise.all([
+      getUserById(userId), 
+      getPostsByUserId(userId)
+   ])
 
    if (!user) {
       notFound()

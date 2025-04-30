@@ -6,7 +6,8 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Moon, Sun } from "lucide-react"
 
 export function ModeToggle() {
-   const { setTheme, theme } = useTheme()
+   // Only destructure what you're actually using
+   const { setTheme } = useTheme()
 
    return (
       <DropdownMenu>
@@ -20,6 +21,7 @@ export function ModeToggle() {
          <DropdownMenuContent align="end">
          <DropdownMenuItem onClick={() => setTheme("light")}>Light</DropdownMenuItem>
          <DropdownMenuItem onClick={() => setTheme("dark")}>Dark</DropdownMenuItem>
+         <DropdownMenuItem onClick={() => setTheme("system")}>System</DropdownMenuItem>
          </DropdownMenuContent>
       </DropdownMenu>
    )

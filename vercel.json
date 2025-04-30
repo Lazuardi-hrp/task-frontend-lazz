@@ -1,0 +1,15 @@
+{
+   "version": 2,
+   "builds": [
+   {
+   "src": "next build",
+   "use": "@vercel/nextjs"
+   }
+   ],
+   "routes": [
+   {
+   "src": "/(.*)",
+   "dest": "index.html"
+   }
+   ]
+}
